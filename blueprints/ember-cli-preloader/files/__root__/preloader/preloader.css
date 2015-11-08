@@ -1,0 +1,60 @@
+html, body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #DDDDDD;
+  transition: opacity .25s ease-in-out;
+}
+
+.loader {
+  position: relative;
+  display: block;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+  transition: opacity 0.25 ease-in-out;
+}
+
+.loader.fade {
+  opacity: 0;
+}
+
+.loader > div {
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  background: rgba(0, 0, 0, 0.7);
+  margin-bottom: 10px;
+  opacity: 0;
+  -webkit-filter: blur(1px);
+  animation: load 1s linear infinite;
+}
+.loader > div:nth-of-type(1) {
+  animation-delay: 0.25s;
+}
+.loader > div:nth-of-type(2) {
+  animation-delay: 0.50s;
+}
+.loader > div:nth-of-type(3) {
+  animation-delay: 0.75s;
+}
+.loader > div:nth-of-type(4) {
+  animation-delay: 1s;
+}
+
+@keyframes load {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+}
