@@ -16,8 +16,7 @@ module('Acceptance: Preloader rendered.', {
 
 test('visiting /', function(assert) {
   visit('/');
-  debugger;
-
   andThen(function() {
     assert.equal(Ember.$('h2#title').html(),"Welcome to Ember.js");
   });
+});

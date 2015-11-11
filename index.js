@@ -8,27 +8,35 @@ function getInjectionFor(type, filePath) {
   var content = [];
 
   content.push('<' + type + ' data-name="preloader">');
-  content.push(fs.readFileSync(path.join(process.cwd(), filePath), { encoding: 'utf8' }));
+  content.push(fs.readFileSync(path.join(this.app.project.root, filePath), { encoding: 'utf8' }));
   content.push('</' + type + '>');
 
   return content;
 }
 
 module.exports = {
-  name: 'preloader',
+  name: 'ember-cli-preloader',
 
   isDevelopingAddon: function() {
     return true;
   },
 
+  included: function(app, parentAddon) {
+    this.addonOptions = this.app.options['ember-cli-preloader'] || {};
+    this.addonPaths = this.addonOptions['paths'] || {};
+  },
+
   contentFor: function(name, config) {
-    console.log(name);
     if (name === 'body') {
-      return getInjectionFor('div', 'app/preloader/preloader.html');
+      var htmlPath = this.addonPaths['html'] || 'app/preloader/preloader.html';
+
+      return getInjectionFor.call(this, 'div', htmlPath);
     }
 
     if (name === 'head-footer') {
-      return getInjectionFor('style', 'app/preloader/preloader.css');
+      var cssPath = this.addonPaths['css'] || 'app/preloader/preloader.css';
+
+      return getInjectionFor.call(this, 'style', cssPath);
     }
   }
 };
