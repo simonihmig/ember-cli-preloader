@@ -14,7 +14,13 @@ module.exports = function(environment) {
       }
     },
     contentSecurityPolicy: {
-      'style-src': "'self' 'unsafe-inline'"
+      'default-src': "'none'",
+      'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
+      'script-src': "'self' https://gist.github.com",
+      'font-src': "'self' https://fonts.gstatic.com data:", // Allow fonts to be loaded from http://fonts.gstatic.com
+      // 'img-src': "'self'",
+      // 'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com", // Allow inline styles and loaded CSS from http://fonts.googleapis.com
+      // 'media-src': "'self'"
     }
   };
 
