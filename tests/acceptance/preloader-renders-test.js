@@ -5,7 +5,8 @@ import startApp from '../helpers/start-app';
 var application;
 
 module('Acceptance: Preloader rendered.', {
-  beforeEach: function() {
+  beforeEach: function(assert) {
+    assert.equal(Ember.$('[data-name="preloader"]').length, 2, "Preloader is in DOM before App runs.");
     application = startApp();
   },
 
@@ -14,9 +15,11 @@ module('Acceptance: Preloader rendered.', {
   }
 });
 
-test('visiting /', function(assert) {
+test('Preloader in DOM.', function(assert) {
+  assert.expect(3);
+  assert.equal(Ember.$('[data-name="preloader"].fade').length, 1, "Preloader 'fade' class added.");
   visit('/');
   andThen(function() {
-    assert.equal(Ember.$('h2#title').html(),"Welcome to Ember.js");
+    assert.equal(Ember.$('[data-name="preloader"]').length, 0, "Preloader is removed.");
   });
 });

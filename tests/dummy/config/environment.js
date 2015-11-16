@@ -12,6 +12,9 @@ module.exports = function(environment) {
         removeDelay: 250,
         loadedClass: 'fade'
       }
+    },
+    contentSecurityPolicy: {
+      'style-src': "'self' 'unsafe-inline'"
     }
   };
 

@@ -33,7 +33,7 @@ export default {
       run.later(function() {
         els.remove();
 
-        // for good measure since nodes are deleted ^.
+        // for good measure.
         els = null;
         div = null;
       }, options.wait);

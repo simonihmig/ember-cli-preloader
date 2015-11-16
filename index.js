@@ -21,8 +21,9 @@ module.exports = {
     return true;
   },
 
-  included: function(app, parentAddon) {
-    this.addonOptions = this.app.options['ember-cli-preloader'] || {};
+  included: function(app) {
+    this.app = app;
+    this.addonOptions = app.options['ember-cli-preloader'] || {};
     this.addonPaths = this.addonOptions['paths'] || {};
   },
 
