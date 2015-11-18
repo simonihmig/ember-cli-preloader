@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ember CLI Preloader</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="dummy/config/environment" content="%7B%22modulePrefix%22%3A%22dummy%22%2C%22environment%22%3A%22production%22%2C%22baseURL%22%3A%22/%22%2C%22locationType%22%3A%22auto%22%2C%22APP%22%3A%7B%22preloader%22%3A%7B%22removeDelay%22%3A250%2C%22loadedClass%22%3A%22fade%22%7D%2C%22name%22%3A%22ember-cli-preloader%22%2C%22version%22%3A%220.1.0+d08575e9%22%7D%2C%22contentSecurityPolicy%22%3A%7B%22default-src%22%3A%22%27none%27%22%2C%22style-src%22%3A%22%27self%27%20%27unsafe-inline%27%20https%3A//fonts.googleapis.com%20https%3A//assets-cdn.github.com%22%2C%22script-src%22%3A%22%27self%27%20https%3A//cdnjs.cloudflare.com%20https%3A//gist.github.com%22%2C%22font-src%22%3A%22%27self%27%20https%3A//fonts.gstatic.com%20data%3A%22%2C%22connect-src%22%3A%22%27self%27%22%2C%22img-src%22%3A%22%27self%27%22%2C%22media-src%22%3A%22%27self%27%22%7D%2C%22contentSecurityPolicyHeader%22%3A%22Content-Security-Policy-Report-Only%22%2C%22exportApplicationGlobal%22%3Afalse%7D" />
+
+    <link rel="stylesheet" href="assets/vendor-f9b70d2f87e5f03a2d7226b50e309fe1.css">
+    <link rel="stylesheet" href="assets/dummy-41252445922be0d2639163d0b839077d.css" integrity="sha256-0lX7v0BErGzC7of9NBgSDmawMBYsqCbJyST/a5Y6utU= sha512-139rld5byrAE6FUIkBCdNKUQVr/SIJcZ5TlLxi3oQpk/cmweuo7YPJ7MZ0C1TPFKw9AZcTOlu2NVM++OUJvobA==" >
+
+    <style data-name="preloader">
+.fade .preloader {
+  opacity: 0;
+}
+
+.preloader {
+  position: absolute;
+  top: calc(50% - 20px);
+  left: calc(50% - 20px);
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
+
+.preloader .circle {
+  width: 60px;
+  height: 60px;
+  background: #414C6D;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.preloader .half-circle {
+  position: absolute;
+  display: inline-block;
+  width: 30px;
+  height: 60px;
+  background: #262C3B;
+  border-radius: 30px 0 0 30px;
+  transform-origin: 30px 0;
+  animation: flip 0.75s linear infinite;
+  -moz-animation: flip 0.75s linear infinite;
+  -webkit-animation: flip 0.75s linear infinite;
+}
+
+@keyframes flip {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(180deg); }
+}
+@-moz-keyframes flip {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(180deg); }
+}
+@-webkit-keyframes flip {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(180deg); }
+}
+
+</style>
+  </head>
+  <body>
+    <div data-name="preloader">
+<div class="preloader">
+  <div class="circle">
+    <div class="half-circle"></div>
+  </div>
+</div>
+
+</div>
+
+    <script src="assets/vendor-470e95cbd592fbcadc8c181ed015bd8b.js"></script>
+    <script src="assets/dummy-5562c62606476f2fcb4395b0dacaee18.js" integrity="sha256-lxzW1aUFl4oLtPV4ZO0XkKcqEvDkuSVC63F9Xbn0djI= sha512-xj5L64E+0GehbPjpSUSyxr8lO7/i3VtnMirPVUMrqAcXoK3MydceiT+/cwO8bfN3eTifzvoUWlZjtNZ1xa7akQ==" ></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.4/gist-embed.min.js"></script>
+
+
+  </body>
+</html>
