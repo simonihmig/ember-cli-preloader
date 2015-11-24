@@ -1,0 +1,28 @@
+<h3 class="ui header">Ember CLI Preloader</h3>
+  <p>Displays a preloader that is visible while the browser is evaluating your JavaScript. This example uses the default preloader (packaged with ember-cli-preloader).</p>
+
+<h3 class="ui header">Customizing the preloader's HTML and CSS</h3>
+  <p>By default, running <b><code>ember install ember-cli-preloader</code></b> will add an <b>app/preloader</b> directory with <b>preloader.css</b> and <b>preloader.html</b></p>
+  <p>You can configure the location of your preloader's HTML and CSS from inside <b>ember-cli-build.js</b>, e.g.:</p>
+  <code class="code-example" data-gist-id="84d1884c897f15c0d87d"></code>
+  <p><i>Notes: The HTML and CSS aren't run through any preprocessors you might have installed, so they have to be plain ol' HTML and CSS at the moment. PRs welcome :D</i></p>
+<h3 class="ui header">Understanding behavior</h3>
+
+  <p>Before the DOM is rendered by Ember, the HTML that is placed into your index.html is of the structure:</p>
+  <code class="code-example" data-gist-id="2b2fd8dcf30b72e8c708" data-gist-line="2-4" data-gist-hide-footer="true"></code>
+
+  <p>And after the DOM is rendered, the default behavior is to immediately remove the HTML and CSS from the index.html. However, depending on your preloader, that may be too abrupt and look ugly.</p>
+  <p>You can configure this behavior from your <b>config/environment.js</b> file.</p>
+  <code class="code-example" data-gist-id="8fa2b4e2162471d765d1" data-gist-highlight-line="4" data-gist-hide-footer="true"></code>
+
+  <p>Now, after the DOM is rendered, the <b><code>loadedClass</code></b>, <code>"fade"</code> <i>(configurable ^)</i> is added to the parent <b><code>div</code></b> of the preloader's HTML:</p>
+  <code class="code-example" data-gist-id="f724ce66d1db4bf50715" data-gist-highlight-line="17" data-gist-line="17-19" data-gist-hide-footer="true"></code>
+
+  <p>You can take advantage of the <b><code>loadedClass</code></b>, <code>"fade"</code> e.g.,:</p>
+  <code class="code-example" data-gist-id="f724ce66d1db4bf50715" data-gist-line="3-12" data-gist-hide-footer="true"></code>
+
+<h3 class="ui header">Configuring behavior</h3>
+  <p>You can configure the default behavior as shown above ^ (<b>config/environment.js</b>) but you can also change the default behavior.</p>
+  <p>This addon registers a tiny <b>preloader service</b> that's injectable via <code>Ember.inject.service('preloader')</code>, e.g.,</p>
+  <code class="code-example" data-gist-id="438fa53b70eaaecddb4f" data-gist-hide-footer="true"></code>
+  <p>See {{link-to 'Documentation' 'docs'}} for details.</p>
