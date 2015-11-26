@@ -1,17 +1,14 @@
 import Ember from "ember";
 
 export default Ember.Route.extend({
-  // activate: function() {},
-  // deactivate: function() {},
-  // setupController: function(controller, model) {},
-  // renderTemplate: function() {},
-  // beforeModel: function() {},
-  // afterModel: function() {},
-
-  model: function() {
+  model() {
       return new Ember.RSVP.Promise(resolve => {
-        Ember.run.later(null, resolve, 400);
+        Ember.run.later(null, resolve, 325);
       });
+  },
+
+  afterModel() {
+    this.transitionTo('about');
   },
 
   preloader: Ember.inject.service(),

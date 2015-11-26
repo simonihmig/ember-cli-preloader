@@ -1,44 +1,46 @@
 <h3 class="ui header">ember-cli-build.js</h3>
-  The default paths are:
-  <div class="ui list">
-    <div class="item"><b>HTML</b>: app/preloader/preloader.html</div>
-    <div class="item"><b>CSS</b>: app/preloader/preloader.css</div>
-  </div>
-  <code class="code-example" data-gist-id="84d1884c897f15c0d87d" data-gist-line="4-11" data-gist-hide-footer="true"></code>
-  <p><i>Notes: Custom paths must be relative to your project's root. i.e., the directory from where you run <code>ember serve</code></i></p>
+
+  <p>This is where you specify the location of your preloader HTML and CSS.</p>
+
+  <p class="code-intro"><i>Here are the defaults:</i></p>
+
+  {{code-snippet name="doc-ember-cli-build.js" class="code-example"}}
+
+  <p><i>Notes: The HTML and CSS aren't run through any preprocessors you might have installed, so they have to be plain ol' HTML and CSS at the moment. PRs welcome :D</i></p>
 
 <h3 class="ui header">config/environment.js</h3>
-  <code class="code-example" data-gist-id="8fa2b4e2162471d765d1" data-gist-line="3-8" data-gist-hide-footer="true"></code>
-  <ul class="ui list">
-    <li><code>loadedClass</code>
-      <ul>
-        <li><b>String</b>: Add this class to your preloader's parent div right after Ember begins rendering DOM.</li>
-        <li><b><code>false</code></b>: No class will be added.</li>
-      </ul>
-    </li>
-    <li><code>removeDelay</code>
-      <ul>
-        <li><b>Number</b>: How many ms to wait before removing the preloader's HTML and CSS from the DOM</li>
-        <li><b><code>false</code></b>: Preloader will not be removed from the DOM</li>
-      </ul>
-    </li>
-  </ul>
+
+  <p>Define the default removal behavior like delay and a 'loaded' classname.</p>
+
+  <p>The defaults are to remove the preloader HTML and CSS in an <code class="inline">"afterRender"</code> queue without adding a classname.</p>
+
+  {{code-snippet name="doc-config-environment.js" class="code-example"}}
+
+  <p><code class="inline">loadedClass</code></p>
+    <ul class="ui list doc-props">
+      <li><b>String</b>: Add this class to your preloader's parent div right after Ember begins rendering DOM.</li>
+      <li><b><code>false</code></b>: No class will be added.</li>
+    </ul>
+
+  <p><code class="inline">removeDelay</code></p>
+    <ul class="ui list doc-props">
+      <li><b>Number</b>: How many ms to wait <code class="inline">"afterRender"</code> to remove preloader's HTML and CSS from the DOM.</li>
+      <li><b><code>false</code></b>: Preloader will not be removed from the DOM.</li>
+    </ul>
 
 <h3 class="ui header">Ember.inject.service('preloader')</h3>
-  <ul class="ui list">
-    <li><code>addLoadedClass(className)</code>
-      <ul>
-        <li><b>String</b>: adds loadedClass to preloader's parent div. Can be blank string, <code>""</code></li>
-        <li><b><code>false</code></b>: Doesn't add a loadedClass</li>
-        <li>If no param is passed then the default value, <code>loadedClass</code> from <b>config/environment.js</b> will be used.</li>
-      </ul>
-    </li>
-    <li><code>removePreloader(delay)</code>
-      <ul>
-        <li><b>Number</b>: How many ms from invocation before removing preloader's HTML and CSS from DOM.</li>
-        <li><b><code>false</code></b>: Do not remove preloader.</li>
-        <li>If no param is passed then the default value, <code>removeDelay</code> from <b>config/environment.js</b> will be used.</li>
-      </ul>
-    </li>
+  <p><code class="inline">addLoadedClass(className)</code></p>
+  <ul class="ui list doc-props">
+
+    <li><b>String</b>: adds loadedClass to preloader's parent div. Can be blank string, <code>""</code></li>
+    <li><b><code>false</code></b>: Doesn't add a loadedClass</li>
+    <li>If no param is passed then the default value, <code>loadedClass</code> from <b>config/environment.js</b> will be used.</li>
   </ul>
-  <p><i>Notes: In order to take advantage of manually adding a class and/or removing the preloader, you'll want to set <code>loadedClass: false</code> and <code>removeDelay: false</code> in your <b>config/environment.js</b>. Otherwise the default behavior may act on the elements before you get a change to use the preloader service's API</i></p>
+
+  <p><code class="inline">removePreloader(delay)</code></p>
+  <ul class="ui list doc-props">
+    <li><b>Number</b>: How many ms from invocation before removing preloader's HTML and CSS from DOM.</li>
+    <li><b><code>false</code></b>: Do not remove preloader.</li>
+    <li>If no param is passed then the default value, <code>removeDelay</code> from <b>config/environment.js</b> will be used.</li>
+  </ul>
+
