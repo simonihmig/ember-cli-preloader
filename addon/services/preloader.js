@@ -16,14 +16,12 @@ export default Ember.Object.extend({
   options: null,
 
   addLoadedClass(className) {
-    if ('undefined' !== typeof className) {
-      className = className;
-    } else {
-      className = this.get('options.loadedClass') || '';
-    }
+    let loadedClass = this.get('options.loadedClass');
 
-    if (className === false) {
+    if ('undefined' === typeof className && loadedClass === false) {
       return;
+    } else {
+      className = ('string' === typeof className) ? className : (loadedClass || '');
     }
 
     let div = this.get('els').filter('div');
@@ -32,18 +30,17 @@ export default Ember.Object.extend({
   },
 
   removePreloader(delay) {
-    if ('undefined' !== typeof delay) {
-      delay = delay;
-    } else {
-      delay = isNaN(delay) ? this.get('options.removeDelay') : delay;
-    }
+    let removeDelay = this.get('options.removeDelay');
 
-    if (delay === false) {
+    if ('undefined' === typeof delay && removeDelay === false) {
       return;
+    } else {
+      delay = isNaN(delay) ? (removeDelay || 0) : delay;
     }
 
     run.later(this, function() {
       this.get('els').remove();
+      this.set('els', null);
     }, delay);
   }
 

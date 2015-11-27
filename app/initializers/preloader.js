@@ -8,11 +8,10 @@ export default {
 
   initialize: function(registry, app) {
     let options = app.preloader || {};
-
-    Preloader.reopen({
+    let service = Preloader.create({
       options: options
     });
 
-    registry.register('service:preloader', Preloader);
+    registry.register('service:preloader', service, { instantiate: false });
   }
 }
