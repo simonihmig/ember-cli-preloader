@@ -1,7 +1,7 @@
 import Ember from "ember";
 
 export default Ember.Route.extend({
-  redirectl() {
+  redirect() {
     this.transitionTo('about');
   },
 
