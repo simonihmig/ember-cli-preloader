@@ -1,0 +1,18 @@
+<h3>Example</h3>
+<p>Example code for triggering removal on <code class="inline">didTransition()</code>, instead of default removal behavior.</p>
+
+<h3>config/environment.js</h3>
+<p><i>Let's disregard default removal behavior:</i></p>
+{{code-snippet name="ex-config-environment.js" class="code-example"}}
+
+<h3>ember-cli-build.js</h3>
+<p><i>Let's grab our HTML and CSS from a non-default location:</i></p>
+{{code-snippet name="ex-ember-cli-build.js" class="code-example"}}
+
+<h3>app/routes/application.js</h3>
+<p><i>Let's add the <code class="inline">fade-out</code> class right away and remove the preloader in <b>250ms</b>:</i></p>
+{{code-snippet name="ex-route.js" class="code-example"}}
+
+<h3>CSS</h3>
+<p><i>Your CSS might look something like this:</i></p>
+{{code-snippet name="ex-css.css" class="code-example"}}

@@ -9,7 +9,7 @@ module.exports = function(environment) {
 
     APP: {
       preloader: {
-        removeDelay: 250,
+        removeDelay: false,
         loadedClass: 'fade'
       }
     },

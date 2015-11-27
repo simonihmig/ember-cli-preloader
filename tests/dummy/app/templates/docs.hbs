@@ -1,0 +1,46 @@
+<h3 class="ui header">ember-cli-build.js</h3>
+
+  <p>This is where you specify the location of your preloader HTML and CSS.</p>
+
+  <p class="code-intro"><i>Here are the defaults:</i></p>
+
+  {{code-snippet name="doc-ember-cli-build.js" class="code-example"}}
+
+  <p><i>Notes: The HTML and CSS aren't run through any preprocessors you might have installed, so they have to be plain ol' HTML and CSS at the moment. PRs welcome :D</i></p>
+
+<h3 class="ui header">config/environment.js</h3>
+
+  <p>Define the default removal behavior like delay and a 'loaded' classname.</p>
+
+  <p>The defaults are to remove the preloader HTML and CSS in an <code class="inline">"afterRender"</code> queue without adding a classname.</p>
+
+  {{code-snippet name="doc-config-environment.js" class="code-example"}}
+
+  <p><code class="inline">loadedClass</code></p>
+    <ul class="ui list doc-props">
+      <li><b>String</b>: Add this class to your preloader's parent div right after Ember begins rendering DOM.</li>
+      <li><b><code>false</code></b>: No class will be added.</li>
+    </ul>
+
+  <p><code class="inline">removeDelay</code></p>
+    <ul class="ui list doc-props">
+      <li><b>Number</b>: How many ms to wait <code class="inline">"afterRender"</code> to remove preloader's HTML and CSS from the DOM.</li>
+      <li><b><code>false</code></b>: Preloader will not be removed from the DOM.</li>
+    </ul>
+
+<h3 class="ui header">Ember.inject.service('preloader')</h3>
+  <p><code class="inline">addLoadedClass(className)</code></p>
+  <ul class="ui list doc-props">
+
+    <li><b>String</b>: adds loadedClass to preloader's parent div. Can be blank string, <code>""</code></li>
+    <li><b><code>false</code></b>: Doesn't add a loadedClass</li>
+    <li>If no param is passed then the default value, <code>loadedClass</code> from <b>config/environment.js</b> will be used.</li>
+  </ul>
+
+  <p><code class="inline">removePreloader(delay)</code></p>
+  <ul class="ui list doc-props">
+    <li><b>Number</b>: How many ms from invocation before removing preloader's HTML and CSS from DOM.</li>
+    <li><b><code>false</code></b>: Do not remove preloader.</li>
+    <li>If no param is passed then the default value, <code>removeDelay</code> from <b>config/environment.js</b> will be used.</li>
+  </ul>
+

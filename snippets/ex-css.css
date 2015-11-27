@@ -1,0 +1,8 @@
+.my-preloader {
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+  /* notice .25s -----^ matches the 250ms passed into removePreloader() */
+}
+.fade-out .my-preloader {
+  opacity: 0;
+}

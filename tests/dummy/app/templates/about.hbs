@@ -1,0 +1,36 @@
+<h3 class="ui header">Ember CLI Preloader</h3>
+  <p>Displays a preloader that is visible while the browser is evaluating your JavaScript. This example uses the default preloader (packaged with ember-cli-preloader).</p>
+
+<h3 class="ui header">Customizing the preloader's HTML and CSS</h3>
+  <p>
+    Running <code class="inline">ember install ember-cli-preloader</code> adds these files to your project: <br>
+    <b>- app/preloader/preloader.html</b><br>
+    <b>- app/preloader/preloader.css</b>
+  </p>
+  <p>See the {{link-to 'Documentation' 'docs'}} on how to configure the name/location for your preloader's HTML and CSS.</p>
+
+  <!--<code class="code-example" data-gist-id="84d1884c897f15c0d87d"></code>-->
+<h3 class="ui header">Understanding behavior</h3>
+
+  <p>Before any DOM is rendered by Ember, the HTML/CSS that is placed into your index.html is of the structure:</p>
+  {{code-snippet name="preloader-before-loaded.html" class="code-example"}}
+  <!--<code class="code-example" data-gist-id="2b2fd8dcf30b72e8c708" data-gist-line="2-4" data-gist-hide-footer="true"></code>-->
+
+  <p>And after the DOM is rendered, the default behavior is to immediately remove the preloader's HTML and CSS from the index.html. However, depending on your preloader, that may be too abrupt and look ugly.</p>
+  <p>See the {{link-to 'Documentation' 'docs'}} on how to configure the behavior for removing your preloader <i>(adding a delay and/or 'loaded' class)</i>.</p>
+  <!--<p>You can configure this behavior from your <b>config/environment.js</b> file.</p>-->
+
+
+<h3>Configurable</h3>
+  <ul class="ui list">
+    <li>Where the preloader HTML/CSS is loaded from (<i>ember-cli-build.js</i>)</li>
+    <li>Add a class once DOM is rendered or whenever you feel like via the preloader service.</li>
+    <li>Remove preloader HTML/CSS once DOM is rendered or whenever you feel like via the preloader service.</li>
+    <li>Add a delay for removal of your preloader (good for fade-out effects) (<i>config/environment.js</i>).</li>
+  </ul>
+ <!-- <code class="code-example" data-gist-id="8fa2b4e2162471d765d1" data-gist-highlight-line="4" data-gist-hide-footer="true"></code> -->
+
+<h3>This Demo</h3>
+  <p>Uses the awesome <a href="https://github.com/Semantic-Org/Semantic-UI-Ember" target="_blank">Semantic-UI CSS framework</a>.</p>
+  <p>It also uses highlight.js via a cool <a href="https://github.com/ef4/ember-code-snippet" target="_blank">code snippet addon</a> by ef4.</p>
+
