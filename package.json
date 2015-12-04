@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-preloader",
   "version": "0.1.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Adds a customizable preloader while the browser is evaluating your App's JS and before any DOM is rendered.",
   "directories": {
     "doc": "doc",
     "test": "tests"
