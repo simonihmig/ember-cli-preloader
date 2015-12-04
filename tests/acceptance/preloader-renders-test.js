@@ -24,10 +24,11 @@ module('Acceptance: Preloader rendered.', {
 test('Preloader in DOM.', function(assert) {
   assert.expect(5);
 
-  assert.equal(Ember.$(`[data-name="preloader"].${preloader.loadedClass}`).length, 1, "'fade' class added.");
-
   visit('/');
 
+  Ember.run.next(this, () => {
+    assert.equal(Ember.$(`[data-name="preloader"].fade`).length, 1, "'fade' class added.");
+  });
   andThen(function() {
     assert.equal(Ember.$('[data-name="preloader"]').length, 0, "Preloader is removed.");
   });
