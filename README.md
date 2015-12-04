@@ -3,7 +3,7 @@
 ![devdependencies](https://david-dm.org/vestorly/ember-cli-preloader/dev-status.svg)
 ## Ember-cli-preloader
 
-Adds a preloader, that's removed once your Ember App render begins rendering DOM.
+Adds a customizable preloader while the browser is evaluating your App's JS and before any DOM is rendered.
 
 ### Installation
 
