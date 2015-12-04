@@ -7,9 +7,9 @@
   top: calc(50% - 20px);
   left: calc(50% - 20px);
   opacity: 1;
-  transition: opacity .25s ease-in-out;
-  -moz-transition: opacity .25s ease-in-out;
-  -webkit-transition: opacity .25s ease-in-out;
+  transition: opacity .325s ease-in-out;
+  -moz-transition: opacity .325s ease-in-out;
+  -webkit-transition: opacity .325s ease-in-out;
 }
 
 .preloader .circle {

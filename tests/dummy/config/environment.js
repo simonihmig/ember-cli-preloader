@@ -10,7 +10,7 @@ module.exports = function(environment) {
     APP: {
       preloader: {
         removeDelay: false,
-        loadedClass: 'fade'
+        loadedClass: false
       }
     },
     contentSecurityPolicy: {

@@ -8,14 +8,10 @@ export default Ember.Route.extend({
   model() {
       return new Ember.RSVP.Promise(resolve => {
         Ember.run.later(null, resolve, 300);
+        this.get('preloader').removePreloader(300);
+        this.get('preloader').addLoadedClass('fade');
       });
   },
 
-  preloader: Ember.inject.service(),
-
-  actions: {
-    didTransition() {
-      this.get('preloader').removePreloader(250);
-    }
-  }
+  preloader: Ember.inject.service()
 });
