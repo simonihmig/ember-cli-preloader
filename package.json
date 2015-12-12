@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-preloader",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Adds a customizable preloader while the browser is evaluating your App's JS and before any DOM is rendered.",
   "directories": {
     "doc": "doc",
