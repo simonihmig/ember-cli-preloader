@@ -39,8 +39,11 @@ export default Ember.Object.extend({
     }
 
     run.later(this, function() {
-      this.get('els').remove();
-      this.set('els', null);
+      let els = this.get('els');
+      if (els && els.remove) {
+        this.get('els').remove();
+        this.set('els', null);
+      }
     }, delay);
   }
 
